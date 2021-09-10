@@ -28,7 +28,7 @@ def tulis(kata):
     data={"text":kata}
     req=requests.post("https://salism3api.pythonanywhere.com/write",data=data).text
     if "Sukses!" in req:
-        print(W+"["+G+"✓"+W+"]Tulisan Berhasil Di Import Ke Gambar Buku")
+        print(W+"["+G+"✓"+W+"]Tulisan Berhasil Di Convert Ke Gambar Buku")
         js=json.loads(req)
         for x in js["images"]:
             os.system("termux-open "+x)
