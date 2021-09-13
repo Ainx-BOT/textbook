@@ -32,9 +32,8 @@ def tulis(kata):
         js=json.loads(req)
         for x in js["images"]:
             os.system("termux-open "+x)
-            os.system("termux-download "+x)
     else:
-        salah()
+        failed()
 if __name__=="__main__":
      clear()
      baner()
