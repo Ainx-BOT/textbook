@@ -31,7 +31,7 @@ def tulis(kata):
         print(W+"["+G+"✓"+W+"]Tulisan Berhasil Di Convert Ke Gambar Buku")
         js=json.loads(req)
         url=js["result"]["url_image"]
-        os.system("termux-open "+x)
+        os.system("termux-open "+url)
     else:
         failed()
 if __name__=="__main__":
