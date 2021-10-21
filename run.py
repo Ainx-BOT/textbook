@@ -26,12 +26,12 @@ def baner():
     print(Back.WHITE+BL+"      Creator : Fahmi Dev       \033[00m")
 def tulis(kata):
     data={"text":kata}
-    req=requests.post("https://salism3api.pythonanywhere.com/write",data=data).text
-    if "Sukses!" in req:
+    req=requests.get("https://ainxbot-id.herokuapp.com/api/nulis",params=data).text
+    if "Success" in req:
         print(W+"["+G+"✓"+W+"]Tulisan Berhasil Di Convert Ke Gambar Buku")
         js=json.loads(req)
-        for x in js["images"]:
-            os.system("termux-open "+x)
+        url=js["result"]["url_image"]
+        os.system("termux-open "+x)
     else:
         failed()
 if __name__=="__main__":
