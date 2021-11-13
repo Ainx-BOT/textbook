@@ -26,14 +26,11 @@ def baner():
     print(Back.WHITE+BL+"      Creator : Fahmi Dev       \033[00m")
 def tulis(kata):
     data={"text":kata}
-    req=requests.get("https://ainxbot-id.herokuapp.com/api/nulis",params=data).text
-    if "Success" in req:
-        print(W+"["+G+"✓"+W+"]Tulisan Berhasil Di Convert Ke Gambar Buku")
-        js=json.loads(req)
-        url=js["result"]["url_image"]
-        os.system("termux-open "+url)
-    else:
-        failed()
+    req=requests.get("https://ainxbot-api.herokuapp.com/api/nulis",params=data).text
+    js=json.loads(req)
+    url=js["Result"]["url_image"]
+    print("Result : "+url)
+    os.system("termux-open "+url)
 if __name__=="__main__":
      clear()
      baner()
